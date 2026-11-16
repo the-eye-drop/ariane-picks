@@ -35,13 +35,47 @@ header nav a:hover{color:var(--fg)}
 .hero{padding-block:clamp(28px,5vw,64px) clamp(40px,6vw,88px)}
 .intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:var(--gut);margin-bottom:clamp(24px,4vw,48px);align-items:end}
 .intro h1{font-weight:300;font-size:clamp(40px,6.4vw,104px);line-height:.95;letter-spacing:-.035em;margin:0}
-.intro h1 em{font-family:var(--serif);font-weight:300;letter-spacing:-.02em}
+.intro h1 em{font-family:var(--serif);font-weight:300;letter-spacing:-.02em;font-size:1.1em}
 .intro h1 em{cursor:default}
 .edrop{position:fixed;left:0;top:0;pointer-events:none;z-index:30;will-change:transform,opacity;color:var(--fg)}
 .edrop svg{display:block;width:100%;height:auto;overflow:visible}
 .edrop .w{fill:var(--bg);stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .edrop .l{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 .edrop .p{fill:currentColor}
+.sh h3 em.wa{display:inline-block;position:relative;cursor:default}
+.wa .wx{position:absolute;pointer-events:none;color:var(--fg);opacity:0}
+.wa .wx svg{display:block;width:100%;height:auto;overflow:visible}
+.wa .ch{display:inline-block}
+@keyframes waHat{0%{opacity:0;transform:translate(-50%,-40px) rotate(-20deg)}25%{opacity:1;transform:translate(-50%,0) rotate(4deg)}35%{transform:translate(-50%,-4px) rotate(-2deg)}45%,70%{opacity:1;transform:translate(-50%,0) rotate(0)}100%{opacity:0;transform:translate(-30%,-60px) rotate(25deg)}}
+.wa-vietnam .wx{left:50%;top:-.7em;width:1.7em}
+.wa-vietnam.play .wx{animation:waHat 1.8s ease-in-out}
+@keyframes waRide{0%{opacity:1;left:-1.2em}85%{opacity:1}100%{opacity:0;left:calc(100% + .4em)}}
+.wa-saigon .wx{bottom:-.45em;width:1.5em}
+.wa-saigon.play .wx{animation:waRide 1.6s cubic-bezier(.4,0,.6,1)}
+@keyframes waPop{0%{opacity:0;transform:translateX(-50%) scale(.4) rotate(-10deg)}15%{opacity:1;transform:translateX(-50%) scale(1) rotate(0)}85%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-10px)}}
+@keyframes waClap{0%,20%{transform:rotate(-28deg)}30%{transform:rotate(0)}42%{transform:rotate(-22deg)}52%{transform:rotate(0)}100%{transform:rotate(0)}}
+.wa-picks .wx{left:50%;top:-.95em;width:1.05em}
+.wa-picks.play .wx{animation:waPop 1.8s ease-out}
+.wa-picks .arm{transform-origin:3px 13px}
+.wa-picks.play .arm{animation:waClap 1.8s ease-out}
+@keyframes waCrown{0%{opacity:0;transform:translate(-50%,-50px) rotate(-35deg)}30%{opacity:1;transform:translate(-50%,0) rotate(14deg)}40%{transform:translate(-50%,-6px) rotate(8deg)}50%,80%{opacity:1;transform:translate(-50%,0) rotate(12deg)}100%{opacity:0;transform:translate(-50%,-4px) rotate(12deg)}}
+.wa-luxe .wx{left:22%;top:-.62em;width:.95em}
+.wa-luxe.play .wx{animation:waCrown 1.9s ease-in-out}
+@keyframes waMega{0%{opacity:0;transform:translateX(-8px) rotate(-8deg)}15%{opacity:1;transform:none}25%{transform:rotate(-6deg)}35%{transform:rotate(4deg)}45%{transform:rotate(-3deg)}55%{transform:none}85%{opacity:1}100%{opacity:0}}
+@keyframes waWave{0%,100%{opacity:0}30%,40%,60%,70%{opacity:1}35%,65%{opacity:.2}}
+.wa-pub .wx{left:100%;margin-left:.15em;top:.05em;width:1.15em}
+.wa-pub.play .wx{animation:waMega 1.8s ease-out}
+.wa-pub.play .wx .sw{animation:waWave 1.8s steps(1,end)}
+@keyframes waFall{0%,100%{transform:none}35%,70%{transform:translateY(var(--dy)) rotate(var(--r))}}
+.wa-design.play .ch{animation:waFall 1.6s cubic-bezier(.5,0,.3,1.4);animation-delay:calc(var(--i)*40ms)}
+@keyframes waFlip{0%{transform:perspective(300px) rotateX(0)}45%{transform:perspective(300px) rotateX(-90deg)}46%{transform:perspective(300px) rotateX(90deg)}100%{transform:perspective(300px) rotateX(0)}}
+.wa-mvt{transform-origin:50% 0}
+.wa-mvt.play{animation:waFlip .9s ease-in-out}
+@keyframes waLook{0%{opacity:0;transform:translateX(-50%) scale(.3)}15%{opacity:1;transform:translateX(-50%) scale(1)}85%{opacity:1}100%{opacity:0}}
+@keyframes waPupil{0%,15%{transform:none}35%,50%{transform:translateX(-3px)}65%,80%{transform:translateX(3px)}100%{transform:none}}
+.wa-voir .wx{left:50%;top:-.5em;width:.9em}
+.wa-voir.play .wx{animation:waLook 1.8s ease-in-out}
+.wa-voir.play .wx .pp{animation:waPupil 1.8s ease-in-out}
 .cd-t{font-variant-numeric:tabular-nums}
 .intro p{margin:0;max-width:46ch;justify-self:end;color:var(--mute)}
 .media{position:relative;overflow:hidden;background:var(--line)}
@@ -58,7 +92,7 @@ a:hover .media img{transform:scale(1.035)}
 section.s{scroll-margin-top:72px;padding-block:clamp(40px,6vw,96px);border-top:1px solid var(--line)}
 .sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:var(--gut);margin-bottom:clamp(20px,3vw,40px);align-items:baseline}
 .sh h3{margin:0;font-weight:300;font-size:clamp(28px,3.2vw,48px);letter-spacing:-.03em;line-height:1}
-.sh h3 em{font-family:var(--serif)}
+.sh h3 em{font-family:var(--serif);font-size:1.1em}
 .sh p{margin:0;color:var(--mute);max-width:56ch;justify-self:end}
 
 .g{display:grid;align-items:start;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(28px,3vw,44px) var(--gut)}
@@ -449,5 +483,32 @@ w.addEventListener('pointerenter',function(){cur=w;goal=1;if(!raf)raf=requestAni
 w.addEventListener('pointerleave',function(){goal=0;if(!raf)raf=requestAnimationFrame(loop)});
 w.addEventListener('click',function(){cur=w;goal=1;if(!raf)raf=requestAnimationFrame(loop);setTimeout(function(){goal=0},1600)});});
 })();
-</script></body>
+</script><script>
+/* Title words: a small funny animation on each italic word (hover; once on scroll for touch). */
+(function(){
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var S='fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"';
+var X={
+vietnam:'<svg viewBox="0 0 60 26" filter="url(#inkl)"><path '+S+' d="M2 22L30 3L58 22Z"/><path '+S+' d="M14 14L30 7M22 18L30 10"/><path fill="none" stroke="currentColor" stroke-width="1.6" d="M18 22C22 27 38 27 42 22"/></svg>',
+saigon:'<svg viewBox="0 0 60 40" filter="url(#inkl)"><circle '+S+' cx="14" cy="31" r="6"/><circle '+S+' cx="46" cy="31" r="6"/><path '+S+' d="M14 31H30L36 18H46M40 18L46 31M24 22H34"/><path '+S+' d="M46 18L44 8H50"/><circle cx="34" cy="10" r="4" fill="currentColor"/><path '+S+' d="M33 14L30 22"/><circle '+S+' cx="2" cy="28" r="2.5"/><circle '+S+' cx="-6" cy="24" r="1.8"/></svg>',
+luxe:'<svg viewBox="0 0 40 28" filter="url(#inkl)"><path '+S+' d="M4 24L2 6L12 15L20 2L28 15L38 6L36 24Z" fill="var(--bg)"/><path '+S+' d="M5 20H35"/><circle cx="20" cy="2" r="2" fill="currentColor"/><circle cx="2" cy="6" r="2" fill="currentColor"/><circle cx="38" cy="6" r="2" fill="currentColor"/></svg>',
+picks:'<svg viewBox="0 0 40 34" filter="url(#inkl)"><path '+S+' d="M3 13H37V32H3Z"/><path '+S+' d="M3 19H37"/><path '+S+' d="M11 13L8 19M20 13L17 19M29 13L26 19"/><g class="arm"><path '+S+' d="M3 13L35 4L37 9L5 18Z" fill="var(--bg)"/><path '+S+' d="M12 10L13 15M21 8L22 13M30 5L31 10"/></g></svg>',
+pub:'<svg viewBox="0 0 46 30" filter="url(#inkl)"><path '+S+' d="M3 11H10L26 3V27L10 19H3Z" fill="var(--bg)"/><path '+S+' d="M10 11V19M7 19L9 27H13L12 20"/><g class="sw"><path '+S+' d="M31 10C34 13 34 17 31 20M36 6C41 11 41 19 36 24M41 3C47 10 47 20 41 27"/></g></svg>',
+voir:'<svg viewBox="0 0 60 26" filter="url(#inkl)"><circle '+S+' cx="17" cy="13" r="11" fill="var(--bg)"/><circle '+S+' cx="43" cy="13" r="11" fill="var(--bg)"/><g class="pp"><circle cx="17" cy="14" r="4.5" fill="currentColor"/><circle cx="43" cy="14" r="4.5" fill="currentColor"/></g></svg>'};
+var touch=matchMedia('(hover: none)').matches;
+var io=touch&&'IntersectionObserver'in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){play(e.target);io.unobserve(e.target)}})},{threshold:1}):null;
+function play(w){w.classList.remove('play');void w.offsetWidth;w.classList.add('play');clearTimeout(w._t);w._t=setTimeout(function(){w.classList.remove('play')},2000)}
+document.querySelectorAll('section.s[id]').forEach(function(sec){var id=sec.id;
+sec.querySelectorAll('.sh h3 em').forEach(function(w){
+if(w.parentNode.closest&&w.parentNode.closest('em'))return;
+w.classList.add('wa','wa-'+id);
+if(id==='design'){var i=0;(function split(n){[].slice.call(n.childNodes).forEach(function(c){if(c.nodeType===3){var f=document.createDocumentFragment();[].forEach.call(c.textContent,function(ch){var s=document.createElement('span');s.className='ch';s.textContent=ch;s.style.setProperty('--i',i++);s.style.setProperty('--dy',(0.15+Math.random()*0.35).toFixed(2)+'em');s.style.setProperty('--r',((Math.random()-.5)*50).toFixed(0)+'deg');f.appendChild(s)});c.parentNode.replaceChild(f,c)}else if(c.nodeType===1)split(c)})})(w)}
+if(X[id]){var x=document.createElement('span');x.className='wx';x.innerHTML=X[id];w.appendChild(x)}
+w.addEventListener('pointerenter',function(e){if(e.pointerType!=='touch')play(w)});
+w.addEventListener('click',function(){play(w)});
+if(io)io.observe(w);
+})});
+})();
+</script>
+</body>
 </html>
