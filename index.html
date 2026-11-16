@@ -35,6 +35,13 @@ header nav a:hover{color:var(--fg)}
 .intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:var(--gut);margin-bottom:clamp(24px,4vw,48px);align-items:end}
 .intro h1{font-weight:300;font-size:clamp(40px,6.4vw,104px);line-height:.95;letter-spacing:-.035em;margin:0}
 .intro h1 em{font-family:var(--serif);font-weight:300;letter-spacing:-.02em}
+.intro h1 em{cursor:default}
+.edrop{position:fixed;left:0;top:0;pointer-events:none;z-index:30;border-radius:50%;will-change:transform,opacity;
+background:radial-gradient(circle at 34% 30%,#fff 0 22%,#efeee9 48%,#c9c7c0 82%,#a9a7a0 100%);
+box-shadow:inset -2px -3px 6px rgba(0,0,0,.18),0 6px 14px rgba(0,0,0,.10)}
+.edrop i{position:absolute;width:46%;height:46%;border-radius:50%;left:27%;top:27%;
+background:radial-gradient(circle at 50% 50%,#0b0b0b 0 42%,#3a3a37 44% 70%,#141413 72% 100%)}
+.edrop i::after{content:"";position:absolute;width:30%;height:30%;left:18%;top:14%;border-radius:50%;background:rgba(255,255,255,.9)}
 .cd-t{font-variant-numeric:tabular-nums}
 .intro p{margin:0;max-width:46ch;justify-self:end;color:var(--mute)}
 .media{position:relative;overflow:hidden;background:var(--line)}
@@ -375,6 +382,33 @@ function tick(){var s=Math.floor((t-Date.now())/1000);
 if(s<=0){w.hidden=true;n.hidden=false;return}
 o.textContent=Math.floor(s/86400)+'d '+p(Math.floor(s%86400/3600))+'h '+p(Math.floor(s%3600/60))+'m '+p(s%60)+'s';
 setTimeout(tick,1000)}tick()})();
+</script>
+<script>
+/* Eye drops: glossy eyeballs drip from the word "eye" on hover (tap on touch). */
+(function(){
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var drops=[],mx=0,my=0,raf=0,MAX=40;
+addEventListener('pointermove',function(e){mx=e.clientX;my=e.clientY},{passive:true});
+function spawn(r){if(drops.length>=MAX)return;
+var s=12+Math.random()*26,el=document.createElement('span');el.className='edrop';
+el.style.width=el.style.height=s+'px';el.appendChild(document.createElement('i'));document.body.appendChild(el);
+drops.push({el:el,i:el.firstChild,s:s,x:r.left+Math.random()*r.width-s/2,y:r.top+r.height*.6,
+vx:(Math.random()-.5)*1.2,vy:-1-Math.random()*2,rot:0,vr:(Math.random()-.5)*4,life:0});
+if(!raf)raf=requestAnimationFrame(step)}
+function step(){raf=0;var H=innerHeight;
+for(var k=drops.length-1;k>=0;k--){var d=drops[k];d.vy+=.18;d.x+=d.vx;d.y+=d.vy;d.rot+=d.vr;d.life++;
+var a=Math.atan2(my-(d.y+d.s/2),mx-(d.x+d.s/2)),o=d.s*.16;
+d.i.style.transform='translate('+Math.cos(a)*o+'px,'+Math.sin(a)*o+'px)';
+var op=d.y>H*.7?Math.max(0,1-(d.y-H*.7)/(H*.3)):1;
+d.el.style.opacity=op;d.el.style.transform='translate('+d.x+'px,'+d.y+'px) rotate('+d.rot+'deg)';
+if(d.y>H+40||op<=0){d.el.remove();drops.splice(k,1)}}
+if(drops.length)raf=requestAnimationFrame(step)}
+document.querySelectorAll('.intro h1 em').forEach(function(w){var t=0;
+function burst(n){var r=w.getBoundingClientRect();for(var j=0;j<n;j++)setTimeout(function(){spawn(r)},j*70)}
+w.addEventListener('pointerenter',function(e){if(e.pointerType==='touch')return;burst(3);t=setInterval(function(){burst(1)},140)});
+w.addEventListener('pointerleave',function(){clearInterval(t)});
+w.addEventListener('click',function(){burst(8)});});
+})();
 </script>
 </body>
 </html>
