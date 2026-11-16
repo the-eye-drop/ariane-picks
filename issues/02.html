@@ -35,6 +35,7 @@ header nav a:hover{color:var(--fg)}
 .intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:var(--gut);margin-bottom:clamp(24px,4vw,48px);align-items:end}
 .intro h1{font-weight:300;font-size:clamp(40px,6.4vw,104px);line-height:.95;letter-spacing:-.035em;margin:0}
 .intro h1 em{font-family:var(--serif);font-weight:300;letter-spacing:-.02em}
+.cd-t{font-variant-numeric:tabular-nums}
 .intro p{margin:0;max-width:46ch;justify-self:end;color:var(--mute)}
 .media{position:relative;overflow:hidden;background:var(--line)}
 .media img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter .6s}
@@ -124,7 +125,7 @@ html:not([data-l="en"]) .en,html:not([data-l="vi"]) .vi,html:not([data-l="fr"]) 
 <section class="hero">
   <div class="intro">
     <h1><span class="en">What deserves<br>your <em>eye</em> this week</span><span class="vi">Những gì đáng để<br><em>mắt</em> tuần này</span><span class="fr">Ce qui mérite<br>votre <em>œil</em> cette semaine</span><span class="es">Lo que merece<br>tu <em>mirada</em> esta semana</span><span class="ja">今週、<br>その<em>目</em>に値するもの</span></h1>
-    <p><span class="mono">16.11.2026</span><br><span class="en">A short selection, luxury and image first. Every visual opens the video or project at its source.</span><span class="vi">Tuyển chọn ngắn gọn, ưu tiên hình ảnh và sự sang trọng. Mỗi hình ảnh mở video hoặc dự án tại nguồn.</span><span class="fr">Une sélection courte, luxe et image d'abord. Chaque visuel ouvre la vidéo ou le projet à la source.</span><span class="es">Una selección corta, lujo e imagen primero. Cada imagen abre el vídeo o el proyecto en su fuente.</span><span class="ja">短く厳選、ラグジュアリーと映像を第一に。各ビジュアルから元の動画やプロジェクトに飛べます。</span></p>
+    <p><span class="mono">16.11.2026 · <span class="cd" data-issue="2026-11-16"><span class="cd-wait"><span class="en">Next issue in</span><span class="vi">Số tiếp theo sau</span><span class="fr">Prochaine édition dans</span><span class="es">Próximo número en</span><span class="ja">次号まで</span> <span class="cd-t"></span></span><span class="cd-now" hidden><span class="en">New issue landing today</span><span class="vi">Số mới ra trong hôm nay</span><span class="fr">Nouvelle édition aujourd&#39;hui</span><span class="es">Nuevo número hoy</span><span class="ja">次号は本日公開</span></span></span></span><br><span class="en">A short selection, luxury and image first. Every visual opens the video or project at its source.</span><span class="vi">Tuyển chọn ngắn gọn, ưu tiên hình ảnh và sự sang trọng. Mỗi hình ảnh mở video hoặc dự án tại nguồn.</span><span class="fr">Une sélection courte, luxe et image d'abord. Chaque visuel ouvre la vidéo ou le projet à la source.</span><span class="es">Una selección corta, lujo e imagen primero. Cada imagen abre el vídeo o el proyecto en su fuente.</span><span class="ja">短く厳選、ラグジュアリーと映像を第一に。各ビジュアルから元の動画やプロジェクトに飛べます。</span></p>
   </div>
   <a href="https://www.youtube.com/watch?v=Sp54mxnWjUM" target="_blank" rel="noopener">
     <div class="media" data-brand="Apple"><img referrerpolicy="no-referrer" loading="lazy" src="https://i.ytimg.com/vi/Sp54mxnWjUM/maxresdefault.jpg" alt="The Dreamer, Apple holiday film"><span class="play">YouTube · 12.11</span></div>
@@ -363,6 +364,17 @@ document.querySelectorAll('.media img').forEach(function(i){
   set(saved);
   btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.set)})});
 })();
+</script>
+<script>
+/* Countdown: next issue = issue date + 7 days, 10:00 Saigon (03:00 UTC). */
+(function(){var c=document.querySelector('.cd');if(!c)return;
+var d=c.getAttribute('data-issue').split('-'),t=Date.UTC(+d[0],+d[1]-1,+d[2]+7,3,0,0),
+w=c.querySelector('.cd-wait'),n=c.querySelector('.cd-now'),o=c.querySelector('.cd-t');
+function p(x){return(x<10?'0':'')+x}
+function tick(){var s=Math.floor((t-Date.now())/1000);
+if(s<=0){w.hidden=true;n.hidden=false;return}
+o.textContent=Math.floor(s/86400)+'d '+p(Math.floor(s%86400/3600))+'h '+p(Math.floor(s%3600/60))+'m '+p(s%60)+'s';
+setTimeout(tick,1000)}tick()})();
 </script>
 </body>
 </html>
