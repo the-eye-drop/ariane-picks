@@ -49,34 +49,34 @@ header nav a:hover{color:var(--fg)}
 .wa .ch{display:inline-block}
 @keyframes waHat{0%{opacity:0;transform:translate(-50%,-40px) rotate(-20deg)}25%{opacity:1;transform:translate(-50%,0) rotate(4deg)}35%{transform:translate(-50%,-4px) rotate(-2deg)}45%,70%{opacity:1;transform:translate(-50%,0) rotate(0)}100%{opacity:0;transform:translate(-30%,-60px) rotate(25deg)}}
 .wa-vietnam .wx{left:50%;top:-.7em;width:1.7em}
-.wa-vietnam.play .wx{animation:waHat 1.8s ease-in-out}
+.wa-vietnam.wa-on .wx{animation:waHat 1.8s ease-in-out}
 @keyframes waRide{0%{opacity:1;left:-1.2em}85%{opacity:1}100%{opacity:0;left:calc(100% + .4em)}}
 .wa-saigon .wx{bottom:-.45em;width:1.5em}
-.wa-saigon.play .wx{animation:waRide 1.6s cubic-bezier(.4,0,.6,1)}
+.wa-saigon.wa-on .wx{animation:waRide 1.6s cubic-bezier(.4,0,.6,1)}
 @keyframes waPop{0%{opacity:0;transform:translateX(-50%) scale(.4) rotate(-10deg)}15%{opacity:1;transform:translateX(-50%) scale(1) rotate(0)}85%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-10px)}}
 @keyframes waClap{0%,20%{transform:rotate(-28deg)}30%{transform:rotate(0)}42%{transform:rotate(-22deg)}52%{transform:rotate(0)}100%{transform:rotate(0)}}
 .wa-picks .wx{left:50%;top:-.95em;width:1.05em}
-.wa-picks.play .wx{animation:waPop 1.8s ease-out}
+.wa-picks.wa-on .wx{animation:waPop 1.8s ease-out}
 .wa-picks .arm{transform-origin:3px 13px}
-.wa-picks.play .arm{animation:waClap 1.8s ease-out}
+.wa-picks.wa-on .arm{animation:waClap 1.8s ease-out}
 @keyframes waCrown{0%{opacity:0;transform:translate(-50%,-50px) rotate(-35deg)}30%{opacity:1;transform:translate(-50%,0) rotate(14deg)}40%{transform:translate(-50%,-6px) rotate(8deg)}50%,80%{opacity:1;transform:translate(-50%,0) rotate(12deg)}100%{opacity:0;transform:translate(-50%,-4px) rotate(12deg)}}
 .wa-luxe .wx{left:22%;top:-.62em;width:.95em}
-.wa-luxe.play .wx{animation:waCrown 1.9s ease-in-out}
+.wa-luxe.wa-on .wx{animation:waCrown 1.9s ease-in-out}
 @keyframes waMega{0%{opacity:0;transform:translateX(-8px) rotate(-8deg)}15%{opacity:1;transform:none}25%{transform:rotate(-6deg)}35%{transform:rotate(4deg)}45%{transform:rotate(-3deg)}55%{transform:none}85%{opacity:1}100%{opacity:0}}
 @keyframes waWave{0%,100%{opacity:0}30%,40%,60%,70%{opacity:1}35%,65%{opacity:.2}}
 .wa-pub .wx{left:100%;margin-left:.15em;top:.05em;width:1.15em}
-.wa-pub.play .wx{animation:waMega 1.8s ease-out}
-.wa-pub.play .wx .sw{animation:waWave 1.8s steps(1,end)}
+.wa-pub.wa-on .wx{animation:waMega 1.8s ease-out}
+.wa-pub.wa-on .wx .sw{animation:waWave 1.8s steps(1,end)}
 @keyframes waFall{0%,100%{transform:none}35%,70%{transform:translateY(var(--dy)) rotate(var(--r))}}
-.wa-design.play .ch{animation:waFall 1.6s cubic-bezier(.5,0,.3,1.4);animation-delay:calc(var(--i)*40ms)}
+.wa-design.wa-on .ch{animation:waFall 1.6s cubic-bezier(.5,0,.3,1.4);animation-delay:calc(var(--i)*40ms)}
 @keyframes waFlip{0%{transform:perspective(300px) rotateX(0)}45%{transform:perspective(300px) rotateX(-90deg)}46%{transform:perspective(300px) rotateX(90deg)}100%{transform:perspective(300px) rotateX(0)}}
 .wa-mvt{transform-origin:50% 0}
-.wa-mvt.play{animation:waFlip .9s ease-in-out}
+.wa-mvt.wa-on{animation:waFlip .9s ease-in-out}
 @keyframes waLook{0%{opacity:0;transform:translateX(-50%) scale(.3)}15%{opacity:1;transform:translateX(-50%) scale(1)}85%{opacity:1}100%{opacity:0}}
 @keyframes waPupil{0%,15%{transform:none}35%,50%{transform:translateX(-3px)}65%,80%{transform:translateX(3px)}100%{transform:none}}
 .wa-voir .wx{left:50%;top:-.5em;width:.9em}
-.wa-voir.play .wx{animation:waLook 1.8s ease-in-out}
-.wa-voir.play .wx .pp{animation:waPupil 1.8s ease-in-out}
+.wa-voir.wa-on .wx{animation:waLook 1.8s ease-in-out}
+.wa-voir.wa-on .wx .pp{animation:waPupil 1.8s ease-in-out}
 header .logo .mark .mk-cap,header .logo .mark .mk-bottle,header .logo .mark .mk-drops,header .logo .mark .mk-eye{transform-box:fill-box;transform-origin:center}
 @keyframes mkCap{0%,100%{transform:none}35%{transform:translate(10px,-16px) rotate(35deg)}55%{transform:translate(4px,-8px) rotate(12deg)}}
 @keyframes mkBottle{0%,100%{transform:none}20%{transform:rotate(-7deg)}40%{transform:rotate(6deg)}60%{transform:rotate(-4deg)}80%{transform:rotate(2deg)}}
@@ -89,6 +89,41 @@ header .logo:hover .mk-eye,header .logo.mk-play .mk-eye{animation:mkBlink 1.1s e
 header .logo{cursor:default}
 .it h4 a:hover,.list h4 a:hover{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
 .it .ml{display:block}
+/* duotone grain on hover (light) */
+.media::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .5s;
+background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),linear-gradient(160deg,#ff3d14,#ff8a3d);background-size:160px 160px,cover;mix-blend-mode:multiply}
+a.ml:hover .media::after,.hero a:hover .media::after{opacity:.42}
+a.ml:hover .media img,.hero a:hover .media img{filter:grayscale(.85) contrast(1.08)}
+/* marker */
+.mk-hl{position:absolute;pointer-events:none;z-index:1;mix-blend-mode:multiply;opacity:.75;transition:opacity 1.2s}
+.mk-hl svg{display:block;width:100%;height:100%}
+/* drop collection */
+.dropjar{position:fixed;right:18px;bottom:18px;z-index:25;width:40px;color:var(--fg);pointer-events:auto;cursor:default}
+.dropjar svg{display:block;width:100%;height:auto;overflow:visible}
+.dropjar .lvl{transition:transform .9s cubic-bezier(.3,1.4,.5,1)}
+.dropjar .fd{opacity:0}
+.dropjar.fall .fd{animation:jarDrop .7s ease-in}
+@keyframes jarDrop{0%{opacity:1;transform:translateY(-40px)}90%{opacity:1}100%{opacity:0;transform:translateY(18px)}}
+.dropjar .tip{position:absolute;right:48px;bottom:8px;white-space:nowrap;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);opacity:0;transition:opacity .4s}
+.dropjar:hover .tip,.dropjar.full .tip{opacity:1}
+.dropjar.full .lid{animation:jarWink 1.2s ease-in-out 2}
+@keyframes jarWink{0%,40%,60%,100%{transform:scaleY(0)}50%{transform:scaleY(1)}}
+.dropjar .lid{transform:scaleY(0);transform-box:fill-box;transform-origin:center top}
+/* watcher eye */
+.watcher{position:fixed;left:18px;bottom:18px;z-index:25;width:46px;color:var(--fg);pointer-events:none}
+.watcher svg{display:block;width:100%;height:auto;overflow:visible}
+.watcher .lid2{transform:scaleY(0);transform-box:fill-box;transform-origin:center top;transition:transform .8s ease}
+.watcher.sleep .lid2{transform:scaleY(1)}
+.watcher .zz{opacity:0;transition:opacity .6s;font-family:var(--serif);font-style:italic}
+.watcher.sleep .zz{opacity:1;animation:zz 2.4s ease-in-out infinite}
+@keyframes zz{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+/* see you */
+.seeyou{display:grid;justify-items:center;gap:6px;padding:64px 0 24px;text-align:center}
+.seeyou svg{width:min(420px,80vw);height:auto;color:var(--fg);overflow:visible}
+.seeyou .big{font-weight:300;font-size:clamp(24px,3vw,40px);letter-spacing:-.02em}
+.seeyou .big em{font-family:var(--serif);font-size:1.1em}
+@media (max-width:900px){.watcher,.dropjar{width:34px}}
+@media print{.watcher,.dropjar,.mk-hl{display:none}}
 .cd-t{font-variant-numeric:tabular-nums}
 .intro p{margin:0;max-width:46ch;justify-self:end;color:var(--mute)}
 .media{position:relative;overflow:hidden;background:var(--line)}
@@ -388,6 +423,7 @@ html:not([data-l="en"]) .en,html:not([data-l="vi"]) .vi,html:not([data-l="fr"]) 
 <div class="li"><span class="mono">Mosfilm · YouTube · EN subs</span><h4><a href="https://www.youtube.com/watch?v=6Lnb1bI0VIk" rel="noopener" target="_blank">Ivan's Childhood</a></h4><p class="cap">Andrei Tarkovsky · <span class="en">USSR</span><span class="vi">Liên Xô</span><span class="fr">URSS</span><span class="es">URSS</span><span class="ja">ソ連</span> · 1962 · 95 min</p><p><span class="en">Tarkovsky's first feature, Golden Lion in Venice in 1962, and the arrival of a new, poetic Soviet cinema. A war film that keeps slipping into dream and memory, in high-contrast black and white by Vadim Yusov.</span><span class="vi">Phim truyện đầu tay của Tarkovsky, Sư tử Vàng Venice 1962, đánh dấu sự xuất hiện của một nền điện ảnh Xô Viết mới, giàu chất thơ. Một phim chiến tranh liên tục trượt vào giấc mơ và ký ức, đen trắng tương phản cao do Vadim Yusov quay.</span><span class="fr">Le premier long métrage de Tarkovski, Lion d'or à Venise en 1962, et l'arrivée d'un nouveau cinéma soviétique, poétique. Un film de guerre qui glisse sans cesse vers le rêve et la mémoire, dans un noir et blanc très contrasté signé Vadim Youssov.</span><span class="es">El primer largo de Tarkovski, León de Oro en Venecia en 1962, y la llegada de un cine soviético nuevo y poético. Un film bélico que se desliza una y otra vez hacia el sueño y la memoria, en un blanco y negro muy contrastado de Vadim Yusov.</span><span class="ja">タルコフスキーの長編第1作。1962年ヴェネツィア金獅子賞を受け、詩的な新しいソ連映画の到来を告げた。夢と記憶へと滑り込み続ける戦争映画。ヴァディム・ユーソフによる高コントラストのモノクローム。</span></p><p class="ctx"><span class="en">The era: 1962 is the Khrushchev "Thaw" after Stalin's death, when Soviet artists briefly gain room to experiment. It is also the height of the Cold War: Gagarin flew in 1961, the Cuban Missile Crisis breaks out in October 1962. In Saigon, construction of Independence Palace begins the same year.</span><span class="vi">Bối cảnh: năm 1962 là thời kỳ "Tan băng" dưới thời Khrushchev sau khi Stalin qua đời, khi nghệ sĩ Xô Viết có thêm chút không gian để thử nghiệm. Đó cũng là đỉnh cao Chiến tranh Lạnh: Gagarin bay vào vũ trụ năm 1961, khủng hoảng tên lửa Cuba nổ ra tháng 10.1962. Ở Sài Gòn, Dinh Độc Lập khởi công cùng năm.</span><span class="fr">Le contexte : 1962, c'est le "Dégel" de Khrouchtchev après la mort de Staline, quand les artistes soviétiques gagnent un peu de liberté. C'est aussi le cœur de la guerre froide : Gagarine a volé en 1961, la crise des missiles de Cuba éclate en octobre 1962. À Saigon, le chantier du palais de l'Indépendance commence la même année.</span><span class="es">El contexto: 1962 es el "Deshielo" de Jruschov tras la muerte de Stalin, cuando los artistas soviéticos ganan algo de libertad. Es también el apogeo de la Guerra Fría: Gagarin voló en 1961 y la crisis de los misiles de Cuba estalla en octubre de 1962. En Saigón, la construcción del Palacio de la Independencia empieza ese mismo año.</span><span class="ja">時代背景：1962年はスターリンの死後、フルシチョフの「雪解け」の時代。ソ連の芸術家がつかの間、実験の余地を得た。冷戦の真っただ中でもあり、1961年にガガーリンが宇宙へ、1962年10月にはキューバ危機が起きた。サイゴンでは同じ年に統一会堂（当時の独立宮殿）の建設が始まった。</span></p><span class="look"><span class="en">The opening dream and the birch-forest scene, where vertical trunks and a sideways tracking shot work like a grid. Memory signalled by image alone, no titles.</span><span class="vi">Giấc mơ mở đầu và cảnh rừng bạch dương, nơi những thân cây thẳng đứng và cú máy lia ngang vận hành như một lưới bố cục. Ký ức được báo hiệu chỉ bằng hình ảnh, không cần chữ.</span><span class="fr">Le rêve d'ouverture et la scène de la forêt de bouleaux, où les troncs verticaux et un travelling latéral fonctionnent comme une grille. La mémoire signalée par l'image seule, sans carton.</span><span class="es">El sueño inicial y la escena del bosque de abedules, donde los troncos verticales y un travelling lateral funcionan como una retícula. La memoria señalada solo con imagen, sin rótulos.</span><span class="ja">冒頭の夢と白樺林の場面。垂直の幹と横移動のトラッキングがグリッドのように働く。字幕に頼らず、映像だけで記憶への移行を示す。</span></span></div>
 </div>
 </section>
+<section class="seeyou" aria-label="See you next Monday"><svg viewBox="0 0 400 170" filter="url(#inkl)"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M10 95C80 20 320 20 390 95C320 160 80 160 10 95Z" fill="var(--bg)"/><circle fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" cx="200" cy="95" r="52"/><circle cx="200" cy="95" r="22" fill="currentColor"/><circle cx="190" cy="85" r="6" fill="var(--bg)"/><path d="M10 95C80 20 320 20 390 95C320 70 80 70 10 95Z" fill="currentColor" opacity=".92"/><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M40 82L28 66M90 66L84 48M150 58L148 38M200 56V36M250 58L252 38M310 66L316 48M360 82L372 66"/></svg><div class="big"><span class="en">See you next <em>Monday</em></span><span class="vi">Hẹn gặp lại <em>thứ Hai</em></span><span class="fr">À lundi <em>prochain</em></span><span class="es">Nos vemos el <em>lunes</em></span><span class="ja">また<em>月曜日</em>に</span></div><div class="mono"><span class="cd-t2"></span></div></section>
 <footer><span class="mono">Our Picks · 02</span><span class="mono src"><span class="en">Sources: </span><span class="vi">Nguồn: </span><span class="fr">Sources : </span><span class="es">Fuentes: </span><span class="ja">出典：</span><a href="https://www.adweek.com/" rel="noopener" target="_blank">Adweek</a>, <a href="https://vimeo.com/" rel="noopener" target="_blank">Vimeo</a>, <a href="https://www.stashmedia.tv/" rel="noopener" target="_blank">Stash</a>, <a href="https://www.gobelins-school.com/" rel="noopener" target="_blank">GOBELINS</a>, <a href="https://shots.net/" rel="noopener" target="_blank">Shots</a>, <a href="https://www.ciclopefestival.com/" rel="noopener" target="_blank">CICLOPE</a>, <a href="https://campaignbriefasia.com/" rel="noopener" target="_blank">Campaign Brief Asia</a>, <a href="https://saigoneer.com/" rel="noopener" target="_blank">Saigoneer</a>, <a href="https://bazaarvietnam.vn/" rel="noopener" target="_blank">Harper's Bazaar VN</a>, <a href="https://annamgallery.com/" rel="noopener" target="_blank">Annam Gallery</a>, <a href="https://quangsan.museum/" rel="noopener" target="_blank">Quang San Art Museum</a>, <a href="https://www.rmit.edu.vn/" rel="noopener" target="_blank">RMIT Vietnam</a>, <a href="https://www.judooo.art/" rel="noopener" target="_blank">Judooo</a>, <a href="https://www.saigonzilla.com/en" rel="noopener" target="_blank">Saigonzilla</a>, <a href="https://www.inc.com/" rel="noopener" target="_blank">Inc.</a>, <a href="https://www.wallpaper.com/" rel="noopener" target="_blank">Wallpaper*</a>, <a href="https://www.designboom.com/" rel="noopener" target="_blank">designboom</a>, <a href="https://bauhaus-dessau.de/en/" rel="noopener" target="_blank">Bauhaus Dessau</a>, <a href="https://www.knoll.com/" rel="noopener" target="_blank">Knoll</a>, <a href="https://en.wikipedia.org/" rel="noopener" target="_blank">Wikipedia</a>, <a href="https://archive.org/" rel="noopener" target="_blank">Internet Archive</a>, <a href="https://www.nfb.ca/" rel="noopener" target="_blank">NFB</a>, <a href="https://www.youtube.com/@Mosfilm_eng" rel="noopener" target="_blank">Mosfilm</a><br/><span class="en">Archive: </span><span class="vi">Lưu trữ: </span><span class="fr">Archives : </span><span class="es">Archivo: </span><span class="ja">アーカイブ：</span><a href="issues/01.html">01</a></span><span class="mono sig">Shuttlerock studio</span></footer>
 </div>
 <script>
@@ -497,7 +533,7 @@ pub:'<svg viewBox="0 0 46 30" filter="url(#inkl)"><path '+S+' d="M3 11H10L26 3V2
 voir:'<svg viewBox="0 0 60 26" filter="url(#inkl)"><circle '+S+' cx="17" cy="13" r="11" fill="var(--bg)"/><circle '+S+' cx="43" cy="13" r="11" fill="var(--bg)"/><g class="pp"><circle cx="17" cy="14" r="4.5" fill="currentColor"/><circle cx="43" cy="14" r="4.5" fill="currentColor"/></g></svg>'};
 var touch=matchMedia('(hover: none)').matches;
 var io=touch&&'IntersectionObserver'in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){play(e.target);io.unobserve(e.target)}})},{threshold:1}):null;
-function play(w){w.classList.remove('play');void w.offsetWidth;w.classList.add('play');clearTimeout(w._t);w._t=setTimeout(function(){w.classList.remove('play')},2000)}
+function play(w){w.classList.remove('wa-on');void w.offsetWidth;w.classList.add('wa-on');clearTimeout(w._t);w._t=setTimeout(function(){w.classList.remove('wa-on')},2000)}
 document.querySelectorAll('section.s[id]').forEach(function(sec){var id=sec.id;
 sec.querySelectorAll('.sh h3 em').forEach(function(w){
 if(w.parentNode.closest&&w.parentNode.closest('em'))return;
@@ -511,5 +547,50 @@ if(io)io.observe(w);
 })();
 </script>
 <script>(function(){var l=document.querySelector("header .logo");if(!l)return;l.addEventListener("click",function(){l.classList.remove("mk-play");void l.offsetWidth;l.classList.add("mk-play");setTimeout(function(){l.classList.remove("mk-play")},1200)})})();</script>
+<script>
+/* Fun layer: marker highlights, drop jar, watcher eye, see-you countdown. */
+(function(){
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var S='fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"';
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+/* 1. marker: selected text leaves a hand-drawn orange highlighter mark for a few seconds */
+document.addEventListener('mouseup',function(){setTimeout(function(){var sel=getSelection();if(!sel||sel.isCollapsed||!sel.rangeCount)return;
+var rs=sel.getRangeAt(0).getClientRects();[].slice.call(rs,0,40).forEach(function(r){if(r.width<4)return;
+var d=document.createElement('div');d.className='mk-hl';d.style.left=(r.left+scrollX-3)+'px';d.style.top=(r.top+scrollY+r.height*.12)+'px';d.style.width=(r.width+6)+'px';d.style.height=(r.height*.86)+'px';
+var j=function(){return(Math.random()*6-3).toFixed(1)};
+d.innerHTML='<svg viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M1 '+(4+ +j()/2)+' C30 '+(2+ +j()/2)+' 70 '+(5+ +j()/2)+' 99 3 L98 17 C70 '+(19+ +j()/3)+' 30 '+(16+ +j()/3)+' 2 18 Z" fill="#FF7A2E"/></svg>';
+document.body.appendChild(d);setTimeout(function(){d.style.opacity=0},3500);setTimeout(function(){d.remove()},5000)})},10)});
+/* 2. drop jar: each section read drops into the bottle; all read = wink */
+var secs=[].slice.call(document.querySelectorAll('section.s[id]'));
+var key='eyedrop-read-'+((document.querySelector('.cd')||{}).getAttribute?document.querySelector('.cd').getAttribute('data-issue'):'x');
+var read={};try{read=JSON.parse(ls(key)||'{}')}catch(e){}
+var jar=document.createElement('div');jar.className='dropjar';
+jar.innerHTML='<span class="tip"></span><svg viewBox="0 0 40 70" filter="url(#inkl)"><defs><clipPath id="jarc"><path d="M8 26C8 22 12 20 16 20H24C28 20 32 22 32 26V62C32 65 30 67 27 67H13C10 67 8 65 8 62Z"/></clipPath></defs>'+
+'<g clip-path="url(#jarc)"><rect class="lvl" x="0" y="20" width="40" height="50" fill="#FF7A2E" transform="translate(0,47)"/></g>'+
+'<path '+S+' d="M8 26C8 22 12 20 16 20H24C28 20 32 22 32 26V62C32 65 30 67 27 67H13C10 67 8 65 8 62Z"/><path '+S+' d="M15 20V12H25V20M18 12L20 4L22 12"/>'+
+'<path '+S+' stroke-width="2.2" d="M13 42C17 37 23 37 27 42C23 47 17 47 13 42Z"/><circle cx="20" cy="42" r="2.4" fill="currentColor"/><path class="lid" d="M13 42C17 37 23 37 27 42C23 39 17 39 13 42Z" fill="currentColor"/>'+
+'<path class="fd" d="M20 0C20 0 16 6 16 8.5C16 11 18 12.5 20 12.5C22 12.5 24 11 24 8.5C24 6 20 0 20 0Z" fill="#FF7A2E"/></svg>';
+document.body.appendChild(jar);
+var lvl=jar.querySelector('.lvl'),tip=jar.querySelector('.tip');
+function upd(anim){var n=0;secs.forEach(function(s){if(read[s.id])n++});var t=secs.length||1;
+lvl.setAttribute('transform','translate(0,'+(47-(n/t)*45).toFixed(1)+')');tip.textContent=n+' / '+t;
+if(anim&&!reduce){jar.classList.remove('fall');void jar.offsetWidth;jar.classList.add('fall')}
+if(n>=t&&!jar.classList.contains('full')){jar.classList.add('full');tip.textContent='All read · see you Monday'}}
+upd(false);
+if('IntersectionObserver'in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!read[e.target.id]){read[e.target.id]=1;ls(key,JSON.stringify(read));upd(true);io.unobserve(e.target)}})},{threshold:.35});secs.forEach(function(s){if(!read[s.id])io.observe(s)})}
+/* 3. watcher: an eye follows the mouse and falls asleep after 25 s without movement */
+var w=document.createElement('div');w.className='watcher';
+w.innerHTML='<svg viewBox="0 0 60 40" filter="url(#inkl)"><path '+S+' d="M4 22C14 9 46 9 56 22C46 35 14 35 4 22Z" fill="var(--bg)"/><g class="pu"><circle '+S+' cx="30" cy="22" r="8" fill="var(--bg)"/><circle cx="30" cy="22" r="4" fill="currentColor"/></g><path class="lid2" d="M4 22C14 9 46 9 56 22C46 26 14 26 4 22Z" fill="currentColor"/><path '+S+' stroke-width="2.2" d="M12 14L8 8M22 10L20 3M30 9V2M38 10L40 3M48 14L52 8"/><text class="zz" x="54" y="6" font-size="11" fill="currentColor">z z</text></svg>';
+document.body.appendChild(w);var pu=w.querySelector('.pu'),idle;
+function wake(){w.classList.remove('sleep');clearTimeout(idle);idle=setTimeout(function(){w.classList.add('sleep')},25000)}
+addEventListener('pointermove',function(e){var r=w.getBoundingClientRect(),a=Math.atan2(e.clientY-(r.top+r.height*.55),e.clientX-(r.left+r.width/2));
+pu.setAttribute('transform','translate('+(Math.cos(a)*6).toFixed(1)+' '+(Math.sin(a)*3.5).toFixed(1)+')');wake()},{passive:true});
+['scroll','keydown','touchstart'].forEach(function(t){addEventListener(t,wake,{passive:true})});wake();
+/* 4. see-you countdown */
+var c=document.querySelector('.cd'),o=document.querySelector('.cd-t2');if(c&&o){var d=c.getAttribute('data-issue').split('-'),T=Date.UTC(+d[0],+d[1]-1,+d[2]+7,3,0,0);
+(function tk(){var s=Math.floor((T-Date.now())/1000);if(s<=0){o.textContent='New issue landing today';return}
+function p(x){return(x<10?'0':'')+x}o.textContent=Math.floor(s/86400)+'d '+p(Math.floor(s%86400/3600))+'h '+p(Math.floor(s%3600/60))+'m '+p(s%60)+'s';setTimeout(tk,1000)})()}
+})();
+</script>
 </body>
 </html>
