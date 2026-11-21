@@ -1,1 +1,1 @@
-fa142ac Fun layer: grain duotone hover, marker highlight, drop jar, watcher eye, see-you-Monday footer; fix title animation class clash
+92a52a6 The Eye Drop everywhere; lime selection; dark history half with adaptive header; pipette empties on scroll; rgb hover; sleeping-eyes screensaver (60 s); blinking see-you eye; compact mobile header
