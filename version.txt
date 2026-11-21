@@ -1,1 +1,1 @@
-92a52a6 The Eye Drop everywhere; lime selection; dark history half with adaptive header; pipette empties on scroll; rgb hover; sleeping-eyes screensaver (60 s); blinking see-you eye; compact mobile header
+33a691f Talking eye with hand-drawn bubble above it; Prompt it block with copy button
